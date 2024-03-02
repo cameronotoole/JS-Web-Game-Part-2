@@ -1,5 +1,5 @@
-function newImage(url, left, bottom){
-    let object = document.createElement('img')
+function newImage(url, left, bottom) {
+    const object = document.createElement('img')
     object.src = url
     object.style.position = 'fixed'
     object.style.left = left + 'px'
@@ -8,12 +8,34 @@ function newImage(url, left, bottom){
     return object
 }
 
-function newItem(url, left, bottom){
-    let item = newImage(url, left, bottom)
+
+function newItem(url, left, bottom) {
+    const item = newImage(url, left, bottom)
+    item.addEventListener('click', function () {
+        item.remove()
+
+    })
 }
 
-function newInventory(){
-    let inventory = document.createElement('div')
+function newItem(url, left, bottom) {
+    const item = newImage(url, left, bottom)
+    item.addEventListener('click', function () {
+        item.remove()
+        const inventoryItem = document.createElement('img')
+        inventoryItem.src = url
+        inventory.append(inventoryItem)
+    })
+}
+
+//new function for newInventory 
+
+function newInventory() {
+    const inventory = document.createElement('div')
+    return inventory
+}
+
+function newInventory() {
+    const inventory = document.createElement('div')
     inventory.style.position = 'fixed'
     inventory.style.bottom = '0px';
     inventory.style.left = '0px'
@@ -39,3 +61,5 @@ newImage('assets/well.png', 500, 575)
 newItem('assets/sword.png', 500, 555)
 newItem('assets/shield.png', 165, 335)
 newItem('assets/staff.png', 600, 250)
+
+
